@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="padding-top: 20px;">
+    <h2 style="font-size: 24px; margin-bottom: 24px; text-align: center;">Eco Wallet</h2>
+
+    <div class="card" style="padding: 30px; border-radius: var(--radius-lg); text-align: center; margin-bottom: 40px; background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%); color: white;">
+        <p style="opacity: 0.9; font-size: 14px; margin-bottom: 8px; color: white;">Available Balance</p>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <h1 style="font-size: 48px; color: white;">{{ user.points }}</h1>
+            <i data-lucide="star" style="fill: #FFD700; color: #FFD700;"></i>
+        </div>
+    </div>
+
+
+    <!-- History Section -->
+    <div>
+        <h3 style="font-size: 18px; margin-bottom: 15px;">Redemption History</h3>
+        {% if activity %}
+            {% for item in activity %}
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center; padding: 16px; margin-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="background: var(--bg); padding: 10px; border-radius: 50%; color: var(--primary);">
+                        <i data-lucide="plus" style="width: 18px;"></i>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; font-size: 14px;">{{ item.code }}</p>
+                        <p style="font-size: 12px; color: var(--text-light);">{{ item.timestamp.strftime('%Y-%m-%d %H:%M') }}</p>
+                    </div>
+                </div>
+                <span style="color: var(--primary); font-weight: 700;">+{{ item.points }} pts</span>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="empty-state">
+                <i data-lucide="history"></i>
+                <p>No transactions yet</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

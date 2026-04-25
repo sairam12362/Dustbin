@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="padding-top: 60px;">
+    <a href="/login" style="width: 44px; height: 44px; border-radius: 12px; background: white; display: flex; align-items: center; justify-content: center; color: var(--text-dark); border: 1px solid #eee; text-decoration: none; margin-bottom: 40px;">
+        <i data-lucide="chevron-left"></i>
+    </a>
+
+    <h2 style="font-size: 32px; margin-bottom: 8px;">Create Account</h2>
+    <p style="color: var(--text-light); margin-bottom: 48px;">Join us in making the world cleaner.</p>
+
+    <form action="/signup" method="POST">
+        <div style="margin-bottom: 20px;">
+            <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text-light);">Full Name</label>
+            <div style="position: relative;">
+                <i data-lucide="user" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 20px; color: var(--text-light);"></i>
+                <input type="text" name="name" placeholder="Enter your name" required style="width: 100%; padding: 16px 16px 16px 48px; border-radius: 16px; border: 1px solid #eee; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#eee'">
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text-light);">Email Address</label>
+            <div style="position: relative;">
+                <i data-lucide="mail" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 20px; color: var(--text-light);"></i>
+                <input type="email" name="email" placeholder="email@example.com" required style="width: 100%; padding: 16px 16px 16px 48px; border-radius: 16px; border: 1px solid #eee; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#eee'">
+            </div>
+        </div>
+
+        <div style="margin-bottom: 40px;">
+            <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text-light);">Password</label>
+            <div style="position: relative;">
+                <i data-lucide="lock" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 20px; color: var(--text-light);"></i>
+                <input type="password" name="password" placeholder="Create a password" required style="width: 100%; padding: 16px 16px 16px 48px; border-radius: 16px; border: 1px solid #eee; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#eee'">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+
+    <p style="text-align: center; margin-top: 30px; font-size: 14px; color: var(--text-light);">
+        Already have an account? <a href="/login" style="color: var(--primary); font-weight: 700; text-decoration: none;">Sign In</a>
+    </p>
+</div>
+{% endblock %}
